@@ -1,7 +1,7 @@
 import { COMPANY } from "@/lib/constants";
 import { Menu, Phone, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { SiLinkedin, SiWhatsapp } from "react-icons/si";
+import { SiInstagram, SiLinkedin, SiWhatsapp } from "react-icons/si";
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
@@ -110,6 +110,15 @@ export default function Navbar() {
             {/* Social Icons — desktop */}
             <div className="hidden md:flex items-center gap-2">
               <a
+                href={COMPANY.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Instagram"
+                className="p-2 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+              >
+                <SiInstagram size={16} />
+              </a>
+              <a
                 href={COMPANY.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -175,6 +184,15 @@ export default function Navbar() {
 
               {/* Mobile social row */}
               <div className="flex items-center gap-4 px-4 pt-3 mt-2 border-t border-white/10">
+                <a
+                  href={COMPANY.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="text-white/70 hover:text-white transition-colors"
+                >
+                  <SiInstagram size={18} />
+                </a>
                 <a
                   href={COMPANY.linkedin}
                   target="_blank"

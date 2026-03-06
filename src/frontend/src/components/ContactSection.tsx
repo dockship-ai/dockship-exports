@@ -1,16 +1,10 @@
 import { useActor } from "@/hooks/useActor";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { COMPANY } from "@/lib/constants";
-import emailjs from "@emailjs/browser";
 import { Loader2, Mail, MessageCircle, Phone } from "lucide-react";
 import { useState } from "react";
 import { SiWhatsapp } from "react-icons/si";
 import { toast } from "sonner";
-import "./ContactSection.css";
-
-const EMAILJS_SERVICE_ID = "service_qzat8v4";
-const EMAILJS_TEMPLATE_ID = "template_cki3cam";
-const EMAILJS_PUBLIC_KEY = "rbRLqEVKK1M6xJ4t3";
 
 interface FormState {
   name: string;
@@ -66,20 +60,20 @@ export default function ContactSection() {
 
     setIsSubmitting(true);
     try {
-      // Send via EmailJS programmatically to Gmail inbox
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          from_email: form.email,
-          phone: form.phone || "Not provided",
-          message: form.message,
-          to_email: "dockship.ad@gmail.com",
-          reply_to: form.email,
-        },
-        EMAILJS_PUBLIC_KEY,
+      // Build WhatsApp fallback URL (opens visitor's WhatsApp as fallback)
+      const waText = encodeURIComponent(
+        `Hello Dockship Exports!\n\nName: ${form.name}\nEmail: ${form.email}${form.phone ? `\nPhone: ${form.phone}` : ""}\n\nMessage:\n${form.message}`,
       );
+      const waFallbackUrl = `https://wa.me/919791299562?text=${waText}`;
+
+      // Build mailto link for email
+      const mailSubject = encodeURIComponent(
+        `Enquiry from ${form.name} via Website`,
+      );
+      const mailBody = encodeURIComponent(
+        `New enquiry received via Dockship website:\n\nName: ${form.name}\nEmail: ${form.email}${form.phone ? `\nPhone: ${form.phone}` : ""}\n\nMessage:\n${form.message}`,
+      );
+      const mailUrl = `mailto:Trade@thedockship.com?subject=${mailSubject}&body=${mailBody}`;
 
       // Also try backend (non-blocking)
       if (actor && !isFetching) {
@@ -88,12 +82,19 @@ export default function ContactSection() {
           .catch(() => {});
       }
 
+      // Open WhatsApp fallback link
+      window.open(waFallbackUrl, "_blank", "noopener,noreferrer");
+
+      // Open email client after brief delay
+      setTimeout(() => {
+        window.open(mailUrl, "_blank", "noopener,noreferrer");
+      }, 700);
+
       setSubmitted(true);
       setForm(INITIAL_FORM);
-      toast.success("Message sent successfully!");
     } catch (err) {
-      console.error("EmailJS error:", err);
-      toast.error("Failed to send message. Please try again or use WhatsApp.");
+      console.error(err);
+      toast.error("Something went wrong. Please contact us directly.");
     } finally {
       setIsSubmitting(false);
     }
@@ -271,7 +272,7 @@ export default function ContactSection() {
                   Message Sent!
                 </h4>
                 <p className="text-gray-600 text-sm mb-6">
-                  Your message has been delivered directly to our Gmail inbox.
+                  Your enquiry has been forwarded to our WhatsApp and email.
                   We&apos;ll get back to you shortly.
                 </p>
                 <button
@@ -432,44 +433,25 @@ export default function ContactSection() {
                 </div>
 
                 {/* Submit */}
-                <div className="flex justify-center">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting || isFetching}
-                    data-ocid="contact.submit_button"
-                    className="send-message-btn disabled:opacity-60 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 size={16} className="animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      "Send Message"
-                    )}
-                  </button>
-                </div>
-
-                {/* Chat on WhatsApp */}
-                <a
-                  href="https://api.whatsapp.com/send?phone=919791299562"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-ocid="contact.whatsapp_button"
-                  className="w-full py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 border-2 transition-all duration-200 hover:scale-[1.02]"
-                  style={{
-                    borderColor: "#25D366",
-                    color: "#25D366",
-                    backgroundColor: "transparent",
-                  }}
+                <button
+                  type="submit"
+                  disabled={isSubmitting || isFetching}
+                  data-ocid="contact.submit_button"
+                  className="btn-orange w-full py-4 rounded-xl text-base font-bold disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
                 >
-                  <SiWhatsapp size={17} />
-                  Chat on WhatsApp
-                </a>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Send Message"
+                  )}
+                </button>
 
                 <p className="text-xs text-gray-400 text-center">
-                  Your message will be delivered directly to
-                  dockship.ad@gmail.com via EmailJS.
+                  Your message will be forwarded to our WhatsApp (+91
+                  9791299562) and email (Trade@thedockship.com) instantly.
                 </p>
               </form>
             )}
