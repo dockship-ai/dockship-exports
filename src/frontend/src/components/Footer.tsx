@@ -1,6 +1,6 @@
 import { COMPANY } from "@/lib/constants";
 import { ChevronRight, Heart, Mail, Phone } from "lucide-react";
-import { SiInstagram, SiLinkedin, SiWhatsapp } from "react-icons/si";
+import { SiLinkedin, SiWhatsapp } from "react-icons/si";
 
 const QUICK_LINKS = [
   { label: "About Us", href: "#about" },
@@ -79,24 +79,6 @@ export default function Footer() {
 
             {/* Social Icons */}
             <div className="flex items-center gap-3">
-              <a
-                href={COMPANY.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow on Instagram"
-                className="w-9 h-9 rounded-lg flex items-center justify-center text-white/50 hover:text-white transition-all duration-200"
-                style={{ backgroundColor: "oklch(0.63 0.19 47 / 12%)" }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor =
-                    "oklch(0.63 0.19 47 / 25%)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor =
-                    "oklch(0.63 0.19 47 / 12%)";
-                }}
-              >
-                <SiInstagram size={15} />
-              </a>
               <a
                 href={COMPANY.linkedin}
                 target="_blank"
