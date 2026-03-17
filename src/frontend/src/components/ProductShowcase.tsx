@@ -16,7 +16,7 @@ const PRODUCTS = [
   {
     id: 2,
     title: "Pharmaceutical Formulations",
-    image: "/assets/pharma.jpg",
+    image: "/assets/tablets.jpg",
     alt: "Pharmaceutical tablets, capsules and blister packs — Dockship Exports",
     description:
       "Tablets, capsules, syrups, injectables — meeting global pharmacopoeia standards. GMP-certified manufacturing with end-to-end quality traceability.",
