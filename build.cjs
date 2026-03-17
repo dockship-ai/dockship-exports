@@ -1,14 +1,26 @@
 const fs = require('fs-extra');
 const path = require('path');
+const { execSync } = require('child_process');
 
 async function build() {
   try {
-    console.log('Starting build process...');
+    console.log('🚀 Starting build process...');
     
-    // Create public/assets folder
+    // Step 1: Run the frontend build
+    console.log('📦 Building frontend...');
+    execSync('cd src/frontend && pnpm run build', { stdio: 'inherit' });
+    
+    // Step 2: Ensure all directories exist
     await fs.ensureDir('public/assets');
+    await fs.ensureDir('dist');
     
-    // Copy assets from all possible locations to public/assets
+    // Step 3: Copy built files from frontend dist to root dist
+    if (await fs.pathExists('src/frontend/dist')) {
+      await fs.copy('src/frontend/dist', 'dist');
+      console.log('✅ Copied built files to dist/');
+    }
+    
+    // Step 4: Copy assets to both locations
     const assetSources = [
       'src/frontend/src/assets',
       'assets'
@@ -16,27 +28,30 @@ async function build() {
     
     for (const source of assetSources) {
       if (await fs.pathExists(source)) {
+        // Copy to public/assets
         await fs.copy(source, 'public/assets');
         console.log(`✅ Assets copied from ${source} to public/assets`);
+        
+        // Also copy to dist/assets
+        await fs.copy(source, 'dist/assets');
+        console.log(`✅ Assets copied from ${source} to dist/assets`);
       }
     }
     
-    // Copy index.html to public if it exists
+    // Step 5: Copy and fix index.html
     if (await fs.pathExists('index.html')) {
       await fs.copy('index.html', 'public/index.html');
-      console.log('✅ index.html copied to public');
-    } else if (await fs.pathExists('src/index.html')) {
-      await fs.copy('src/index.html', 'public/index.html');
-      console.log('✅ index.html copied from src to public');
+      await fs.copy('index.html', 'dist/index.html');
+      console.log('✅ index.html copied to public/ and dist/');
     }
     
-    // List copied files
-    const files = await fs.readdir('public/assets');
-    console.log('📁 Assets in public folder:', files);
+    // Step 6: List all assets in dist
+    const files = await fs.readdir('dist/assets');
+    console.log('📁 Assets in dist folder:', files);
     
-    console.log('✅ Build complete!');
+    console.log('✅ Build complete! Ready for deployment.');
   } catch (err) {
-    console.error('Error during build:', err);
+    console.error('❌ Error during build:', err);
     process.exit(1);
   }
 }
