@@ -1,13 +1,14 @@
 import { useElementVisible } from "@/hooks/useScrollAnimation";
 import { useCallback, useState } from "react";
 
+// Replace with your local asset import if you downloaded a background
+import globalBg from "@/assets/global-reach.jpg";
 const STATS = [
   { value: 50, suffix: "+", label: "Countries Served" },
   { value: 1000, suffix: "+", label: "Shipments Completed" },
   { value: 10, suffix: "+", label: "Years Experience" },
   { value: 200, suffix: "+", label: "Products Exported" },
 ];
-
 function useCounter(target: number, duration = 1800) {
   const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
@@ -17,7 +18,7 @@ function useCounter(target: number, duration = 1800) {
     setStarted(true);
 
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
+      "(prefers-reduced-motion: reduce)"
     ).matches;
 
     if (prefersReducedMotion) {
@@ -29,7 +30,6 @@ function useCounter(target: number, duration = 1800) {
     const step = (now: number) => {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // Ease-out cubic
       const eased = 1 - (1 - progress) ** 3;
       setCount(Math.floor(eased * target));
       if (progress < 1) requestAnimationFrame(step);
@@ -40,7 +40,6 @@ function useCounter(target: number, duration = 1800) {
 
   return { count, start };
 }
-
 function StatCounter({
   value,
   suffix,
@@ -50,10 +49,7 @@ function StatCounter({
   const ref = useElementVisible(start, 0.5);
 
   return (
-    <div
-      ref={ref as React.RefObject<HTMLDivElement>}
-      className="text-center px-4 py-6"
-    >
+    <div ref={ref as React.RefObject<HTMLDivElement>} className="text-center px-4 py-6">
       <p
         className="font-display text-4xl sm:text-5xl lg:text-6xl font-black mb-2"
         style={{ color: "oklch(0.72 0.17 47)" }}
@@ -66,7 +62,6 @@ function StatCounter({
     </div>
   );
 }
-
 export default function GlobalReachSection() {
   return (
     <section
@@ -77,7 +72,7 @@ export default function GlobalReachSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/assets/generated/global-logistics.dim_1200x600.jpg"
+          src={globalBg}
           alt="Global shipping and logistics network"
           className="w-full h-full object-cover"
           loading="lazy"
@@ -95,10 +90,7 @@ export default function GlobalReachSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-14">
-          <p
-            className="section-label mb-3"
-            style={{ color: "oklch(0.72 0.17 47)" }}
-          >
+          <p className="section-label mb-3" style={{ color: "oklch(0.72 0.17 47)" }}>
             Our Impact
           </p>
           <h2
@@ -130,9 +122,7 @@ export default function GlobalReachSection() {
           <button
             type="button"
             onClick={() => {
-              document
-                .getElementById("contact")
-                ?.scrollIntoView({ behavior: "smooth" });
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
             data-ocid="global.primary_button"
             className="btn-orange text-base px-8 py-4 rounded-xl"
@@ -142,9 +132,7 @@ export default function GlobalReachSection() {
           <button
             type="button"
             onClick={() => {
-              document
-                .getElementById("products")
-                ?.scrollIntoView({ behavior: "smooth" });
+              document.getElementById("products")?.scrollIntoView({ behavior: "smooth" });
             }}
             data-ocid="global.secondary_button"
             className="btn-outline-white text-base px-8 py-4 rounded-xl"

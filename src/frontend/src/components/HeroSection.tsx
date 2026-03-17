@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
-
+import logoWhite from "@/assets/logo-white.png"; // permanent white logo
+import heroVideo from "@/assets/hero.mp4";        // bundled video asset
 export default function HeroSection() {
   const handleScrollDown = () => {
     const aboutEl = document.getElementById("about");
@@ -10,7 +11,6 @@ export default function HeroSection() {
     const contactEl = document.getElementById("contact");
     if (contactEl) contactEl.scrollIntoView({ behavior: "smooth" });
   };
-
   return (
     <section
       id="hero"
@@ -27,12 +27,9 @@ export default function HeroSection() {
           tabIndex={-1}
           className="w-full h-full object-cover"
         >
-          <source
-            src="/assets/Dockship Exports Private Limited.mp4"
-            type="video/mp4"
-          />
+          <source src={heroVideo} type="video/mp4" />
         </video>
-        {/* Dark overlay for readability */}
+        {/* Dark overlay */}
         <div
           className="absolute inset-0"
           style={{
@@ -40,7 +37,7 @@ export default function HeroSection() {
               "linear-gradient(135deg, oklch(0.10 0.04 258 / 82%) 0%, oklch(0.15 0.04 258 / 70%) 50%, oklch(0.12 0.03 258 / 85%) 100%)",
           }}
         />
-        {/* Bottom fade to body */}
+        {/* Bottom fade */}
         <div
           className="absolute bottom-0 left-0 right-0 h-32"
           style={{
@@ -49,19 +46,14 @@ export default function HeroSection() {
           }}
         />
       </div>
-
-      {/* Decorative floating circles */}
-      <div
-        className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full opacity-[0.04] blur-3xl pointer-events-none"
-        style={{ backgroundColor: "oklch(0.63 0.19 47)" }}
-      />
-      <div
-        className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full opacity-[0.06] blur-3xl pointer-events-none"
-        style={{ backgroundColor: "oklch(0.63 0.19 47)" }}
-      />
-
-      {/* Main Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Logo overlay */}
+        <img
+          src={logoWhite}
+          alt="Dockship Logo"
+          className="h-32 w-auto mx-auto mb-8"
+        />
+
         {/* Section label */}
         <div
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 text-xs font-bold tracking-widest uppercase"
@@ -82,7 +74,7 @@ export default function HeroSection() {
           Globally Certified Export Company
         </div>
 
-        {/* Main Headline */}
+        {/* Headline */}
         <h1
           className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6"
           style={{
@@ -97,8 +89,6 @@ export default function HeroSection() {
           </span>
           <span className="block mt-1">Medical Exports</span>
         </h1>
-
-        {/* CTA Buttons */}
         <div
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4"
           style={{ animation: "heroFadeUp 0.7s ease 0.45s both" }}
@@ -143,8 +133,6 @@ export default function HeroSection() {
           ))}
         </div>
       </div>
-
-      {/* Scroll Down Chevron */}
       <button
         type="button"
         onClick={handleScrollDown}

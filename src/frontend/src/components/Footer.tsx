@@ -1,7 +1,7 @@
 import { COMPANY } from "@/lib/constants";
 import { ChevronRight, Heart, Mail, Phone } from "lucide-react";
 import { SiLinkedin, SiWhatsapp } from "react-icons/si";
-
+import logoWhite from "@/assets/logo-white.png"; // permanent white logo
 const QUICK_LINKS = [
   { label: "About Us", href: "#about" },
   { label: "Products", href: "#products" },
@@ -19,7 +19,6 @@ const CERTIFICATIONS_LIST = [
   "FSSAI Licensed",
   "Trademark Registered",
 ];
-
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const hostname =
@@ -31,7 +30,6 @@ export default function Footer() {
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
-
   return (
     <footer
       data-ocid="footer.section"
@@ -40,29 +38,20 @@ export default function Footer() {
       {/* Main Footer Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Column 1: Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            {/* Logo */}
             <div className="mb-4 flex items-center gap-2">
               <img
-                src="/assets/uploads/unnamed-removebg-preview-1.png"
-                alt="AD Logo"
-                className="h-10 w-10 object-contain"
-                style={{ filter: "brightness(0) invert(1)" }}
+                src={logoWhite}
+                alt="Dockship Logo"
+                className="h-12 w-12 object-contain"
               />
               <div>
-                <span
-                  className="font-display text-2xl font-black tracking-tight text-white"
-                  style={{ letterSpacing: "-0.04em" }}
-                >
+                <span className="font-display text-2xl font-black tracking-tight text-white">
                   DOCK
                 </span>
                 <span
                   className="font-display text-2xl font-black tracking-tight"
-                  style={{
-                    color: "oklch(0.63 0.19 47)",
-                    letterSpacing: "-0.04em",
-                  }}
+                  style={{ color: "oklch(0.63 0.19 47)" }}
                 >
                   SHIP
                 </span>
@@ -76,8 +65,6 @@ export default function Footer() {
               formulations, dermatology products, and medical equipment.
               Certified. Compliant. Global.
             </p>
-
-            {/* Social Icons */}
             <div className="flex items-center gap-3">
               <a
                 href={COMPANY.linkedin}
@@ -86,14 +73,6 @@ export default function Footer() {
                 aria-label="Connect on LinkedIn"
                 className="w-9 h-9 rounded-lg flex items-center justify-center text-white/50 hover:text-white transition-all duration-200"
                 style={{ backgroundColor: "oklch(0.63 0.19 47 / 12%)" }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor =
-                    "oklch(0.63 0.19 47 / 25%)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor =
-                    "oklch(0.63 0.19 47 / 12%)";
-                }}
               >
                 <SiLinkedin size={15} />
               </a>
@@ -104,26 +83,14 @@ export default function Footer() {
                 aria-label="Chat on WhatsApp"
                 className="w-9 h-9 rounded-lg flex items-center justify-center text-white/50 hover:text-white transition-all duration-200"
                 style={{ backgroundColor: "oklch(0.63 0.19 47 / 12%)" }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor =
-                    "oklch(0.63 0.19 47 / 25%)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor =
-                    "oklch(0.63 0.19 47 / 12%)";
-                }}
               >
                 <SiWhatsapp size={15} />
               </a>
             </div>
           </div>
-
-          {/* Column 2: Quick Links */}
           <div>
-            <h4
-              className="font-display text-sm font-bold tracking-widest uppercase mb-5"
-              style={{ color: "oklch(0.72 0.17 47)" }}
-            >
+            <h4 className="font-display text-sm font-bold tracking-widest uppercase mb-5"
+              style={{ color: "oklch(0.72 0.17 47)" }}>
               Quick Links
             </h4>
             <nav aria-label="Footer navigation">
@@ -136,11 +103,9 @@ export default function Footer() {
                       className="flex items-center gap-1.5 text-sm text-white/60 hover:text-white transition-colors duration-200 group"
                       data-ocid="footer.link"
                     >
-                      <ChevronRight
-                        size={13}
+                      <ChevronRight size={13}
                         className="opacity-0 group-hover:opacity-100 transition-opacity -ml-1"
-                        style={{ color: "oklch(0.63 0.19 47)" }}
-                      />
+                        style={{ color: "oklch(0.63 0.19 47)" }} />
                       {link.label}
                     </button>
                   </li>
@@ -148,91 +113,61 @@ export default function Footer() {
               </ul>
             </nav>
           </div>
-
-          {/* Column 3: Certifications */}
           <div>
-            <h4
-              className="font-display text-sm font-bold tracking-widest uppercase mb-5"
-              style={{ color: "oklch(0.72 0.17 47)" }}
-            >
+            <h4 className="font-display text-sm font-bold tracking-widest uppercase mb-5"
+              style={{ color: "oklch(0.72 0.17 47)" }}>
               Certifications
             </h4>
             <ul className="space-y-2.5">
               {CERTIFICATIONS_LIST.map((cert) => (
-                <li
-                  key={cert}
-                  className="flex items-center gap-2 text-sm text-white/60"
-                >
-                  <div
-                    className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                    style={{ backgroundColor: "oklch(0.63 0.19 47)" }}
-                  />
+                <li key={cert} className="flex items-center gap-2 text-sm text-white/60">
+                  <div className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                    style={{ backgroundColor: "oklch(0.63 0.19 47)" }} />
                   {cert}
                 </li>
               ))}
             </ul>
           </div>
-
-          {/* Column 4: Contact */}
           <div>
-            <h4
-              className="font-display text-sm font-bold tracking-widest uppercase mb-5"
-              style={{ color: "oklch(0.72 0.17 47)" }}
-            >
+            <h4 className="font-display text-sm font-bold tracking-widest uppercase mb-5"
+              style={{ color: "oklch(0.72 0.17 47)" }}>
               Contact Us
             </h4>
             <address className="not-italic space-y-3">
               {COMPANY.phones.map((phone) => (
-                <a
-                  key={phone}
-                  href={`tel:${phone}`}
-                  className="flex items-center gap-2.5 text-sm text-white/60 hover:text-white transition-colors"
-                >
-                  <Phone
-                    size={13}
-                    style={{ color: "oklch(0.63 0.19 47)", flexShrink: 0 }}
-                  />
+                <a key={phone} href={`tel:${phone}`}
+                  className="flex items-center gap-2.5 text-sm text-white/60 hover:text-white transition-colors">
+                  <Phone size={13} style={{ color: "oklch(0.63 0.19 47)" }} />
                   {phone}
                 </a>
               ))}
-              <a
-                href={`mailto:${COMPANY.email}`}
-                className="flex items-center gap-2.5 text-sm text-white/60 hover:text-white transition-colors"
-              >
-                <Mail
-                  size={13}
-                  style={{ color: "oklch(0.63 0.19 47)", flexShrink: 0 }}
-                />
+              <a href={`mailto:${COMPANY.email}`}
+                className="flex items-center gap-2.5 text-sm text-white/60 hover:text-white transition-colors">
+                <Mail size={13} style={{ color: "oklch(0.63 0.19 47)" }} />
                 {COMPANY.email}
               </a>
             </address>
           </div>
         </div>
       </div>
-
-      {/* Bottom Bar */}
       <div className="border-t" style={{ borderColor: "oklch(1 0 0 / 8%)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
-            {/* Copyright */}
             <p>
               &copy; {currentYear} Dockship Exports Private Limited | Directors:{" "}
               <span className="text-white/60">
                 {COMPANY.directors.join(" & ")}
               </span>
             </p>
-
-            {/* Caffeine attribution */}
             <p className="flex items-center gap-1.5">
               Built with{" "}
-              <Heart
-                size={11}
-                className="fill-current"
-                style={{ color: "oklch(0.63 0.19 47)" }}
-              />{" "}
+              <Heart size={11} className="fill-current"
+                style={{ color: "oklch(0.63 0.19 47)" }} />{" "}
               using{" "}
               <a
-                href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(hostname)}`}
+                href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(
+                  hostname
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-white/60 hover:text-white transition-colors"

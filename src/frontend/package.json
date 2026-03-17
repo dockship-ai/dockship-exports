@@ -3,14 +3,15 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "build:skip-bindings": "vite build && pnpm copy:env",
-    "build": "vite build && pnpm copy:env",
-    "copy:env": "cp env.json dist/",
-    "typecheck": "tsc --noEmit --pretty",
-    "check": "biome check src",
-    "fix": "biome check --write src"
-  },
+"scripts": {
+ "dev": "vite", 
+  "build:skip-bindings": "vite build && npm run copy:env",
+  "build": "vite build && npm run copy:env",
+  "copy:env": "copyfiles env.json dist/",
+  "typecheck": "tsc --noEmit --pretty",
+  "check": "biome check src",
+  "fix": "biome check --write src"
+},
   "devDependencies": {
     "@biomejs/biome": "^1.9.0",
     "@tailwindcss/container-queries": "^0.1.1",
@@ -21,6 +22,7 @@
     "@types/three": "0.176.0",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.20",
+    "copyfiles": "^2.4.1",
     "dotenv": "^16.5.0",
     "dotenv-cli": "^8.0.0",
     "postcss": "^8.4.41",
@@ -82,7 +84,7 @@
     "react-day-picker": "^9.5.0",
     "react-dom": "~19.1.0",
     "react-hook-form": "^7.53.0",
-    "react-icons": "^5.4.0",
+    "react-icons": "^4.10.1",
     "react-quill-new": "3.4.6",
     "react-resizable-panels": "^2.1.7",
     "react-use": "~17.6.0",

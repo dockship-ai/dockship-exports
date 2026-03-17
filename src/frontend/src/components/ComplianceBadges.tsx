@@ -1,54 +1,51 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Shield } from "lucide-react";
-
 const CERTIFICATIONS = [
   {
     id: 1,
     short: "FSSAI",
     name: "Food Safety & Standards Authority of India",
     description: "Licensed for food-adjacent product exports",
-    img: "/assets/uploads/vecteezy_fssai-logo-vector-fssai-icon-free-vector_20336357-6.jpg",
+   img: "/assets/fssai.jpg",
   },
   {
     id: 2,
     short: "APEDA",
     name: "Agricultural & Processed Food Products Export",
     description: "Authorized under APEDA for export development",
-    img: "/assets/uploads/apeda-4.jpg",
+    img: "/assets/apeda.jpg",
   },
   {
     id: 3,
     short: "IEC",
     name: "Import Export Code — DGFT",
     description: "Government-issued code for international trade",
-    img: "/assets/uploads/bf01dc425bd1080b5c45546afc753513.IEC-1--2.webp",
+    img: "/assets/iec.webp",
   },
   {
     id: 4,
     short: "Pharmexcil",
     name: "Pharmaceuticals Export Promotion Council",
     description: "Member of India's leading pharma export body",
-    img: "/assets/uploads/pharmexcil_logo_new_MB-1--3.png",
+   img: "/assets/pharmexcil.png",
   },
   {
     id: 5,
     short: "Spices Board",
     name: "Spices Board of India",
     description: "Certified member of Spices Board India",
-    img: "/assets/uploads/Spices_Board_of_India_Logo-5.jpg",
+    img: "/assets/Spices_Board.jpg",
   },
   {
     id: 6,
     short: "Drug Licensed",
     name: "Drugs Licensed",
     description: "Regulatory approval for drugs & medical devices",
-    img: "/assets/uploads/drug-license-registration-1--7.png",
+    img: "/assets/drug-license-registration_(1).png",
   },
 ];
-
 export default function ComplianceBadges() {
   const sectionRef = useScrollAnimation(0.1);
-
   return (
     <section
       id="certifications"
@@ -58,12 +55,8 @@ export default function ComplianceBadges() {
       style={{ backgroundColor: "oklch(0.18 0.04 258)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div className="text-center mb-14 animate-on-scroll">
-          <p
-            className="section-label mb-3"
-            style={{ color: "oklch(0.72 0.17 47)" }}
-          >
+          <p className="section-label mb-3" style={{ color: "oklch(0.72 0.17 47)" }}>
             Compliance & Trust
           </p>
           <h2
@@ -77,8 +70,6 @@ export default function ComplianceBadges() {
             your assurance of quality, legality, and trust.
           </p>
         </div>
-
-        {/* Certification Badges Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-5">
           {CERTIFICATIONS.map((cert, idx) => (
             <div
@@ -121,8 +112,6 @@ export default function ComplianceBadges() {
             </div>
           ))}
         </div>
-
-        {/* Bottom trust statement */}
         <div className="mt-12 text-center animate-on-scroll stagger-4">
           <p
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white"
@@ -132,8 +121,7 @@ export default function ComplianceBadges() {
             }}
           >
             <Shield size={14} style={{ color: "oklch(0.72 0.17 47)" }} />
-            Verified &amp; Trusted by Indian and International Regulatory
-            Authorities
+            Verified &amp; Trusted by Indian and International Regulatory Authorities
           </p>
         </div>
       </div>

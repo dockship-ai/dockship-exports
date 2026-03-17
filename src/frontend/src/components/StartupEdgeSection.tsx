@@ -1,6 +1,5 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Award, Globe, Shield, TrendingUp, Users, Zap } from "lucide-react";
-
 const PILLARS = [
   {
     icon: Users,
@@ -39,14 +38,12 @@ const PILLARS = [
       "As a lean, focused team we move fast. Custom sourcing, rapid quotes, and direct director-level communication — no layers, no delays.",
   },
 ];
-
 export default function StartupEdgeSection() {
   const sectionRef = useScrollAnimation(0.05);
-
   return (
     <section
-      id="global"
-      data-ocid="global.section"
+      id="why-us"
+      data-ocid="edge.section"
       ref={sectionRef as React.RefObject<HTMLElement>}
       className="relative py-20 lg:py-28 overflow-hidden"
     >
@@ -66,14 +63,9 @@ export default function StartupEdgeSection() {
           }}
         />
       </div>
-
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-14">
-          <p
-            className="section-label mb-3"
-            style={{ color: "oklch(0.72 0.17 47)" }}
-          >
+          <p className="section-label mb-3" style={{ color: "oklch(0.72 0.17 47)" }}>
             Why Partner With Us
           </p>
           <h2
@@ -87,8 +79,6 @@ export default function StartupEdgeSection() {
             commitment to quality — here is what sets Dockship apart.
           </p>
         </div>
-
-        {/* Pillars Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {PILLARS.map((pillar) => {
             const Icon = pillar.icon;
@@ -118,17 +108,13 @@ export default function StartupEdgeSection() {
             );
           })}
         </div>
-
-        {/* CTA Row */}
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
             type="button"
             onClick={() => {
-              document
-                .getElementById("contact")
-                ?.scrollIntoView({ behavior: "smooth" });
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            data-ocid="global.primary_button"
+            data-ocid="edge.primary_button"
             className="btn-orange text-base px-8 py-4 rounded-xl"
           >
             Partner With Us
@@ -136,11 +122,9 @@ export default function StartupEdgeSection() {
           <button
             type="button"
             onClick={() => {
-              document
-                .getElementById("products")
-                ?.scrollIntoView({ behavior: "smooth" });
+              document.getElementById("products")?.scrollIntoView({ behavior: "smooth" });
             }}
-            data-ocid="global.secondary_button"
+            data-ocid="edge.secondary_button"
             className="btn-outline-white text-base px-8 py-4 rounded-xl"
           >
             View Products

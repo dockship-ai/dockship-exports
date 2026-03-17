@@ -1,6 +1,6 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { CheckSquare, Headphones, Package, Shield } from "lucide-react";
-
+import whyPartnerBg from "@/assets/why-partner-bg.jpg"; // background image
 const FEATURES = [
   {
     id: 1,
@@ -31,35 +31,38 @@ const FEATURES = [
       "Every product is tested against international pharmacopoeia and dermatological standards before shipment. Zero compromises on quality.",
   },
 ];
-
 export default function WhyUsSection() {
   const sectionRef = useScrollAnimation(0.1);
-
   return (
     <section
       id="why"
       data-ocid="why.section"
       ref={sectionRef as React.RefObject<HTMLElement>}
-      className="py-20 lg:py-28"
-      style={{ backgroundColor: "oklch(0.96 0.003 240)" }}
+      className="py-20 lg:py-28 relative"
+      style={{
+        backgroundImage: `url(${whyPartnerBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Optional dark overlay for readability */}
+      <div className="absolute inset-0 bg-black/40" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-14 animate-on-scroll">
           <p className="section-label mb-3">Our Advantage</p>
           <h2
             className="font-display text-3xl sm:text-4xl lg:text-5xl font-black mb-4"
-            style={{ color: "oklch(0.18 0.04 258)", letterSpacing: "-0.02em" }}
+            style={{ color: "oklch(0.98 0.003 240)", letterSpacing: "-0.02em" }}
           >
             Why Choose Dockship?
           </h2>
-          <p className="text-gray-500 text-base md:text-lg max-w-2xl mx-auto">
+          <p className="text-white text-base md:text-lg max-w-2xl mx-auto">
             More than an exporter — a trusted global healthcare supply partner
             with deep expertise and genuine care.
           </p>
         </div>
-
-        {/* Feature Blocks */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {FEATURES.map((feature, idx) => (
             <div

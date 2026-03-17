@@ -1,6 +1,5 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { CheckCircle, Globe, Package, Shield } from "lucide-react";
-
 const USP_ITEMS = [
   {
     icon: Shield,
@@ -19,10 +18,8 @@ const USP_ITEMS = [
     text: "Quality Assurance — Rigorous testing meets international pharmacopoeia standards",
   },
 ];
-
 export default function AboutSection() {
   const sectionRef = useScrollAnimation(0.15);
-
   return (
     <section
       id="about"
@@ -32,7 +29,6 @@ export default function AboutSection() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Text column */}
           <div className="animate-fade-left">
             <p className="section-label mb-3">About Us</p>
             <h2
@@ -101,15 +97,13 @@ export default function AboutSection() {
               </button>
             </div>
           </div>
-
-          {/* Visual column */}
           <div className="animate-fade-right">
             <div className="relative">
               {/* Main image */}
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="/assets/uploads/Screenshot-2024-06-10-181359-1--5.png"
-                  alt="Aerial view of Dockship's global container port operations"
+                  src="/assets/uploads/about-section-main.png"
+                  alt="Dockship global container port operations"
                   className="w-full h-72 lg:h-96 object-cover"
                   loading="lazy"
                 />
