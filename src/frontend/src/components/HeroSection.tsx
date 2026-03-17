@@ -1,5 +1,5 @@
 import { ChevronDown } from "lucide-react";
-import logoWhite from "@/assets/logo-white.png"; // permanent white logo
+import logoWhite from "@/assets/logo-white-BguI7DWQ.png"; // permanent white logo
 import heroVideo from "@/assets/hero-DPTZ3cKg.mp4";        // bundled video asset
 export default function HeroSection() {
   const handleScrollDown = () => {

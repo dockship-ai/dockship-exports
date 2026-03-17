@@ -1,7 +1,7 @@
 import { COMPANY } from "@/lib/constants";
 import { ChevronRight, Heart, Mail, Phone } from "lucide-react";
 import { SiLinkedin, SiWhatsapp } from "react-icons/si";
-import logoWhite from "@/assets/logo-white.png"; // permanent white logo
+import logoWhite from "@/assets/logo-white-BguI7DWQ.png"; // permanent white logo
 const QUICK_LINKS = [
   { label: "About Us", href: "#about" },
   { label: "Products", href: "#products" },

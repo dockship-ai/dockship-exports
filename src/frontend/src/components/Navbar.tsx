@@ -2,7 +2,7 @@ import { COMPANY } from "@/lib/constants";
 import { Menu, Phone, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { SiLinkedin, SiWhatsapp } from "react-icons/si";
-import logoWhite from "@/assets/logo-white.png";
+import logoWhite from "@/assets/logo-white-BguI7DWQ.png";
 const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Products", href: "#products" },
