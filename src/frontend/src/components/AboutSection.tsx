@@ -102,7 +102,7 @@ export default function AboutSection() {
               {/* Main image */}
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="/assets/uploads/about-section-main.png"
+                  src="/assets/about.png"
                   alt="Dockship global container port operations"
                   className="w-full h-72 lg:h-96 object-cover"
                   loading="lazy"

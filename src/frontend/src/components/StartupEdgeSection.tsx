@@ -50,7 +50,7 @@ export default function StartupEdgeSection() {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/assets/generated/global-logistics.dim_1200x600.jpg"
+          src="/assets/why-partner-bg.jpg"
           alt="Global shipping network"
           className="w-full h-full object-cover"
           loading="lazy"
