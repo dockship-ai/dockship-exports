@@ -15377,7 +15377,7 @@ function AboutSection() {
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rounded-2xl overflow-hidden shadow-2xl", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
             "img",
             {
-              src: "/assets/uploads/about-section-main.png",
+              src: "/assets/uploads/about-section-main.jpg",
               alt: "Dockship global container port operations",
               className: "w-full h-72 lg:h-96 object-cover",
               loading: "lazy"
@@ -29735,7 +29735,7 @@ const PRODUCTS = [
   {
     id: 1,
     title: "Dermatology Products",
-    image: "/assets/derma.png",
+    image: "/assets/derma.jpg",
     alt: "Premium dermatology skincare serums and creams — Dockship Exports",
     description: "Premium skincare serums, anti-aging creams, medicated formulations for dermatological export. Compliant with global standards for sensitive-skin care.",
     tags: ["Serums", "Creams", "Medicated Formulations"],
@@ -29745,7 +29745,7 @@ const PRODUCTS = [
   {
     id: 2,
     title: "Pharmaceutical Formulations",
-    image: "/assets/pharma.png",
+    image: "/assets/pharma.jpg",
     alt: "Pharmaceutical tablets, capsules and blister packs — Dockship Exports",
     description: "Tablets, capsules, syrups, injectables — meeting global pharmacopoeia standards. GMP-certified manufacturing with end-to-end quality traceability.",
     tags: ["Tablets", "Capsules", "Injectables"],
@@ -29755,7 +29755,7 @@ const PRODUCTS = [
   {
     id: 3,
     title: "Medical Equipment",
-    image: "/assets/equipment.png",
+    image: "/assets/equipment.jpg",
     alt: "Medical diagnostic devices and surgical instruments — Dockship Exports",
     description: "Diagnostic devices, surgical instruments, monitoring equipment for hospitals and clinics worldwide. CDSCO-approved, globally shipped.",
     tags: ["Diagnostic Devices", "Surgical Instruments", "Monitoring"],
